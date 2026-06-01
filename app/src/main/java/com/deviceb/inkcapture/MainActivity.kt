@@ -117,7 +117,7 @@ class MainActivity : Activity() {
         thread {
             try {
                 val result = uploadBitmap(bmp, destination.selectedItem.toString())
-                runOnUiThread { status.text = result }
+                runOnUiThread { status.text = result; DeviceBWidgetUtil.updateAllWidgets(this@MainActivity) }
             } catch (e: Exception) {
                 runOnUiThread { status.text = "Upload failed: ${e.javaClass.simpleName}: ${e.message}" }
             }
